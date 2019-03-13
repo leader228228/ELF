@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.*;
 
+import java.awt.*;
+
 public class App extends Application
 {
     public static void main( String[] args )
@@ -18,7 +20,6 @@ public class App extends Application
         Parent root = FXMLLoader.load(getClass().getResource("../../../../a.fxml"));
         primaryStage.setTitle("Test");
         primaryStage.setScene(new Scene(root, primaryStage.getWidth(), primaryStage.getHeight()));
-        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
