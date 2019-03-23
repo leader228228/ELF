@@ -1,4 +1,4 @@
-package ua.edu.sumdu.badgroup.math.approximations;
+package ua.edu.sumdu.badgroup.math;
 
 import ua.edu.sumdu.badgroup.math.linearization.Linearizator;
 
@@ -7,7 +7,7 @@ import javax.naming.OperationNotSupportedException;
 public abstract class Formula implements Linearizator {
     protected double argCoef;
     protected double freeCoef;
-    abstract double count(double arg);
+    protected abstract double count(double arg);
 
     public Formula(double argCoef, double freeCoef) {
         this.argCoef = argCoef;
@@ -61,5 +61,13 @@ public abstract class Formula implements Linearizator {
     @Override
     public double argCoef(double argCoefLinear) {
         return argCoefLinear;
+    }
+
+    @Override
+    public String toString() {
+        return "Formula{" +
+                "argCoef=" + argCoef +
+                ", freeCoef=" + freeCoef +
+                '}';
     }
 }

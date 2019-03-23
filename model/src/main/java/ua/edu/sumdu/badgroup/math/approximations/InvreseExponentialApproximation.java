@@ -1,5 +1,7 @@
 package ua.edu.sumdu.badgroup.math.approximations;
 
+import ua.edu.sumdu.badgroup.math.Formula;
+
 public class InvreseExponentialApproximation extends Formula {
     public InvreseExponentialApproximation(double argCoef, double freeCoef) {
         super(argCoef, freeCoef);
@@ -9,7 +11,7 @@ public class InvreseExponentialApproximation extends Formula {
     }
 
     @Override
-    double count(double arg) {
+    protected double count(double arg) {
         return Math.exp(freeCoef + argCoef / arg);
     }
 

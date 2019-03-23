@@ -1,5 +1,7 @@
 package ua.edu.sumdu.badgroup.math.approximations;
 
+import ua.edu.sumdu.badgroup.math.Formula;
+
 public class InverseApproximation extends Formula {
     public InverseApproximation(double argCoef, double freeCoef) {
         super(argCoef, freeCoef);
@@ -9,7 +11,7 @@ public class InverseApproximation extends Formula {
     }
 
     @Override
-    double count(double arg) {
+    protected double count(double arg) {
         return freeCoef + argCoef / arg;
     }
 

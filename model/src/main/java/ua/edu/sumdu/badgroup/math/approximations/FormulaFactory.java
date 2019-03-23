@@ -1,6 +1,7 @@
 package ua.edu.sumdu.badgroup.math.approximations;
 
-import ua.edu.sumdu.badgroup.common.Formulas;
+import ua.edu.sumdu.badgroup.math.Formula;
+import ua.edu.sumdu.badgroup.math.Formulas;
 
 public class FormulaFactory {
     /**

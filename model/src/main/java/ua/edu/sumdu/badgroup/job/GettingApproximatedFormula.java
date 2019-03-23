@@ -1,10 +1,10 @@
 package ua.edu.sumdu.badgroup.job;
 
 import org.apache.commons.math3.linear.*;
-import ua.edu.sumdu.badgroup.common.Formulas;
-import ua.edu.sumdu.badgroup.common.entities.Data;
-import ua.edu.sumdu.badgroup.common.entities.Point;
-import ua.edu.sumdu.badgroup.math.approximations.Formula;
+import ua.edu.sumdu.badgroup.math.Formulas;
+import ua.edu.sumdu.badgroup.entities.Data;
+import ua.edu.sumdu.badgroup.entities.Point;
+import ua.edu.sumdu.badgroup.math.Formula;
 import ua.edu.sumdu.badgroup.math.approximations.FormulaFactory;
 
 public class GettingApproximatedFormula implements Job<Formula> {
@@ -17,14 +17,14 @@ public class GettingApproximatedFormula implements Job<Formula> {
     }
 
     @Override
-    public Formula execute() throws Exception {
+    public Formula execute() {
         double n = data.size();
         double argLinearSum = 0;
         double valLinearSum = 0;
         double argLinearSqrSum = 0;
         double argValLinearMultSum = 0;
         for (Point point : data.getPoints()) {
-            argLinearSum += formula.argCoefLinear(point.getArg());
+            argLinearSum += formula.argLinear(point.getArg());
             valLinearSum += formula.valLinear(point.getValue());
             argLinearSqrSum += Math.pow(formula.argLinear(point.getArg()), 2);
             argValLinearMultSum += formula.argLinear(point.getArg()) * formula.valLinear(point.getValue());
