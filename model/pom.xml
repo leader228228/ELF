@@ -12,6 +12,7 @@
     <artifactId>model</artifactId>
 
     <name>model</name>
+    <packaging>jar</packaging>
     <!-- FIXME change it to the project's website -->
     <url>http://elit.sumdu.edu.ua/uk/</url>
 

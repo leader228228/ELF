@@ -1,6 +1,8 @@
 package ua.edu.sumdu.badgroup;
 
 import ua.edu.sumdu.badgroup.job.DeviateCalculation;
+import ua.edu.sumdu.badgroup.job.FisherCriticalValue;
+import ua.edu.sumdu.badgroup.job.Job;
 import ua.edu.sumdu.badgroup.math.Formulas;
 import ua.edu.sumdu.badgroup.entities.Data;
 import ua.edu.sumdu.badgroup.entities.Point;
@@ -40,6 +42,9 @@ public class Main
         Data data = new Data(points);
         GettingApproximatedFormula getFormula = new GettingApproximatedFormula(Formulas.INVERSE_LOG_SUM, data);
         System.out.println(getFormula.execute());*/
+
+        Job job = new FisherCriticalValue(10, 0.99);
+        System.out.println(((FisherCriticalValue) job).execute());
 
     }
 }
