@@ -34,7 +34,7 @@ public class Point {
         this.arg = arg;
     }
 
-    public double getRes() {
+    public double getValue() {
         return res;
     }
 
