@@ -1,8 +1,8 @@
 package ua.edu.sumdu.badgroup.job;
 
-import ua.edu.sumdu.badgroup.common.Formulas;
-import ua.edu.sumdu.badgroup.common.entities.Data;
-import ua.edu.sumdu.badgroup.common.entities.Point;
+import ua.edu.sumdu.badgroup.math.Formulas;
+import ua.edu.sumdu.badgroup.entities.Data;
+import ua.edu.sumdu.badgroup.entities.Point;
 
 import java.util.*;
 /**

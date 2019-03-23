@@ -1,4 +1,4 @@
-package ua.edu.sumdu.badgroup.common.entities;
+package ua.edu.sumdu.badgroup.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -11,6 +11,14 @@ public class Point {
     private double arg;
     private double res;
     private String tag;
+
+    public Point(double arg, double res) {
+        this.arg = arg;
+        this.res = res;
+    }
+
+    public Point() {
+    }
 
     @Override
     public boolean equals(Object o) {

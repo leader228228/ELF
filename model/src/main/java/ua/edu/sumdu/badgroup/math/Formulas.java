@@ -1,4 +1,4 @@
-package ua.edu.sumdu.badgroup.common;
+package ua.edu.sumdu.badgroup.math;
 
 public enum  Formulas {
     LINEAR,
