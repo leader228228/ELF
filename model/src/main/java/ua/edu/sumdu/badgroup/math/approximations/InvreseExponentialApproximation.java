@@ -11,7 +11,7 @@ public class InvreseExponentialApproximation extends Formula {
     }
 
     @Override
-    protected double count(double arg) {
+    public double count(double arg) {
         return Math.exp(freeCoef + argCoef / arg);
     }
 

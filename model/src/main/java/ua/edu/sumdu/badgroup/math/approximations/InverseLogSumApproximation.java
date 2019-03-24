@@ -11,7 +11,7 @@ public class InverseLogSumApproximation extends Formula {
     }
 
     @Override
-    protected double count(double arg) {
+    public double count(double arg) {
         return 1 / (freeCoef + argCoef * Math.log(arg));
     }
 

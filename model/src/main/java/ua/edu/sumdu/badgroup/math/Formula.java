@@ -7,7 +7,7 @@ import javax.naming.OperationNotSupportedException;
 public abstract class Formula implements Linearizator {
     protected double argCoef;
     protected double freeCoef;
-    protected abstract double count(double arg);
+    public abstract double count(double arg);
 
     public Formula(double argCoef, double freeCoef) {
         this.argCoef = argCoef;
