@@ -78,7 +78,7 @@ public class DeviateCalculation implements Job<Map<Formulas, Properties>> {
         for (double d : collection) {
             mult *= d;
         }
-        return Math.pow(mult, collection.size());
+        return Math.pow(mult, 1.0d / collection.size());
     }
 
     private double harmonicMean(Collection<Double> collection) {
