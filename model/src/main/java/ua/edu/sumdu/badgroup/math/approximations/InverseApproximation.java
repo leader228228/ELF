@@ -11,7 +11,7 @@ public class InverseApproximation extends Formula {
     }
 
     @Override
-    protected double count(double arg) {
+    public double count(double arg) {
         return freeCoef + argCoef / arg;
     }
 
