@@ -1,34 +1,40 @@
 package ua.edu.sumdu.badgroup;
 
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.DragEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import ua.edu.sumdu.badgroup.common.Formulas;
+
+import ua.edu.sumdu.badgroup.entities.Data;
+import ua.edu.sumdu.badgroup.entities.Point;
+import ua.edu.sumdu.badgroup.job.DeviateCalculation;
+import ua.edu.sumdu.badgroup.math.Formulas;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import static java.lang.Thread.sleep;
-
 public class ControllerB implements Initializable {
+
+
+    private App app;
+
+    public ControllerB(App app) {
+        this.app = app;
+    }
 
     @FXML
     private Button btnFinish;
-    private Map<Double, Double> dataMap;
+    private LinkedList<Point> dataList;
     @FXML
     private TextField xInput;
 
@@ -44,6 +50,8 @@ public class ControllerB implements Initializable {
     @FXML
     private ChoiceBox chBox;
 
+    private Map<Formulas, Properties> getDevCalculate;
+
     public void setErrorLabel (String s) {
         errorLabel.setText(s);
     }
@@ -55,9 +63,12 @@ public class ControllerB implements Initializable {
 
     @FXML
     public void pressFinalOK(javafx.event.ActionEvent event) throws IOException {
-        Map<Formulas, Properties>
-
-        Parent homePageParent1 = FXMLLoader.load(getClass().getResource("../../../../c.fxml"));
+        Data dataValues = new Data(dataList);
+        DeviateCalculation devCalc = new DeviateCalculation(dataValues);
+        app.setDataPoints(dataValues);
+        app.setMapFP(devCalc.execute());
+        System.out.println("OK");
+        Parent homePageParent1 = app.getParentC();
         Scene homePageScene1 = new Scene(homePageParent1);
         Stage currentStage1 = (Stage) ( (Node) event.getSource()).getScene().getWindow();
         currentStage1.setScene(homePageScene1);
@@ -66,7 +77,8 @@ public class ControllerB implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dataMap = new HashMap<>();
+        dataList = new LinkedList<>();
+        //getDevCalculate = new HashMap<>();
         uploadCoiseValues();
     }
 
@@ -90,7 +102,8 @@ public class ControllerB implements Initializable {
         try {
             a = Double.parseDouble(String.valueOf(Double.parseDouble(xInput.getText())));
             b = Double.parseDouble(String.valueOf(Double.parseDouble(yInput.getText())));
-            dataMap.put(a, b);
+            Point p = new Point(a,b);
+            dataList.add(p);
             errorLabel.setText("");
            // System.out.println("X: " + a + " Y: " + b);
         }

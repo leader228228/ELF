@@ -22,6 +22,12 @@ import static java.lang.Thread.sleep;
 
 public class Controller {
 
+    private App app;
+
+    public Controller(App app) {
+        this.app = app;
+    }
+
     @FXML
     private Button btnNew;
 
@@ -32,7 +38,7 @@ public class Controller {
     private Button btnExit;
 
     public void pressNew(ActionEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("../../../../b.fxml"));
+        Parent homePageParent = app.getParentB();
         Scene homePageScene = new Scene(homePageParent);
         Stage currentStage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
         currentStage.setScene(homePageScene);
