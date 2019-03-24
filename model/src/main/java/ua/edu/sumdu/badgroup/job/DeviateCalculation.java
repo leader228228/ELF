@@ -86,7 +86,7 @@ public class DeviateCalculation implements Job<Map<Formulas, Properties>> {
         for (Double d : collection) {
             result += 1 / d;
         }
-        return 1 / result;
+        return collection.size() / result;
     }
 
     /**
